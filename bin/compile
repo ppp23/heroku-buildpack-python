@@ -180,7 +180,8 @@ source $BIN_DIR/steps/collectstatic
 
 # ### Finalize
 #
-cp -R $CACHE_DIR/geos /app/.heroku/vendor/lib/geos
+cp -R $CACHE_DIR/geos/lib /app/.heroku/vendor/lib
+rm -r $CACHE_DIR/geos
 
 # Set context environment variables.
 set-env PATH '$HOME/.heroku/python/bin:$PATH'
