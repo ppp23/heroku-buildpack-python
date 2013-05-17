@@ -181,6 +181,10 @@ source $BIN_DIR/steps/collectstatic
 # ### Finalize
 #
 
+#cleanup
+rm -r /app/.heroku/vendor/lib/lib
+rm -r /app/.heroku/vendor/lib/geos
+
 # Set context environment variables.
 set-env PATH '$HOME/.heroku/python/bin:$PATH'
 set-env PYTHONUNBUFFERED true
