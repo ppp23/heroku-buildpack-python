@@ -111,6 +111,8 @@ tar xzvf geos-3.3.2-herkou.tar.gz >/dev/null 2>&1
 mv geos $CACHE_DIR/geos
 rm geos-3.3.2-herkou.tar.gz
 echo "GEOS installed" | indent
+cp -R $CACHE_DIR/geos/lib /app/.heroku/vendor
+rm -r $CACHE_DIR/geos
 
 
 # Install Python.
@@ -180,8 +182,6 @@ source $BIN_DIR/steps/collectstatic
 
 # ### Finalize
 #
-cp -R $CACHE_DIR/geos/lib /app/.heroku/vendor/lib
-rm -r $CACHE_DIR/geos
 
 # Set context environment variables.
 set-env PATH '$HOME/.heroku/python/bin:$PATH'
