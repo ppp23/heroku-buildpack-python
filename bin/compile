@@ -101,6 +101,18 @@ mkdir -p $(dirname $PROFILE_PATH)
 set +e
 PYTHON_VERSION=$(cat runtime.txt)
 
+
+# Install GEOS
+cd $BUILD_DIR
+echo "-----> Fetching and installing GEOS 3.3.2"
+curl -O https://s3.amazonaws.com/cirheroku/geos-3.3.2-herkou.tar.gz >/dev/null 2>&1
+echo "-----> Installing ..."
+tar xzvf geos-3.3.2-herkou.tar.gz >/dev/null 2>&1
+mv geos $ROOT_DIR/vendor/lib/geos
+rm geos-3.3.2-herkou.tar.gz
+echo "GEOS installed" | indent
+
+
 # Install Python.
 if [ -f .heroku/python-version ]; then
   if [ ! $(cat .heroku/python-version) = $PYTHON_VERSION ]; then
