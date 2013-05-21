@@ -110,6 +110,7 @@ echo "-----> Installing ..."
 tar xzvf geos-3.3.2-herkou.tar.gz >/dev/null 2>&1
 mv geos/lib/* /app/.heroku/vendor/lib
 rm geos-3.3.2-herkou.tar.gz
+rm -rf geos
 echo "GEOS installed" | indent
 
 
