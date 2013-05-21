@@ -108,7 +108,7 @@ echo "-----> Fetching and installing GEOS 3.3.2"
 curl -O https://s3.amazonaws.com/cirheroku/geos-3.3.2-herkou.tar.gz >/dev/null 2>&1
 echo "-----> Installing ..."
 tar xzvf geos-3.3.2-herkou.tar.gz >/dev/null 2>&1
-mv geos/lib /app/.heroku/vendor
+mv geos/lib/* /app/.heroku/vendor/lib
 rm geos-3.3.2-herkou.tar.gz
 echo "GEOS installed" | indent
 
@@ -180,10 +180,6 @@ source $BIN_DIR/steps/collectstatic
 
 # ### Finalize
 #
-
-#cleanup
-rm -r /app/.heroku/vendor/lib/lib
-rm -r /app/.heroku/vendor/lib/geos
 
 # Set context environment variables.
 set-env PATH '$HOME/.heroku/python/bin:$PATH'
